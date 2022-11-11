@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <title>Netflix</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="./assets/netflix_logo.png" id="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tv Shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recently Added</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My List</a>
+            </li>
+            <li class="nav-item active" aria-current="page">
+              <a class="nav-link" href="backoffice.html">BackOffice</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search icon"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">KIDS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-bell-fill icon"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+                  />
+                </svg>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <!-- Example single danger button -->
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img src="./assets/avatar.png" id="avatar" />
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="http://ubeytdemir.me/netflix-ui/profile.html"
+                    >
+                      <div class="d-flex align-items-center">
+                        <img src="./assets/avatar.png" id="avatar-small" />
+                        Ubeyt
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="http://ubeytdemir.me/netflix-ui/profile.html"
+                      >Manage Profiles</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="http://ubeytdemir.me/netflix-ui/accounts.html"
+                      >Account</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Help Center</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li><a class="dropdown-item" href="#">Signout Netflix</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mb-3" id="backoffice">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 mt-5">
+            <h1 class="text-center">Backoffice</h1>
+            <h5 class="text-center">(Add/Edit/Delete)</h5>
+            <form onsubmit="onFormSubmit(event)" id="event-form">
+              <div class="form-group">
+                <label for="event-name">Movie Name</label>
+                <input type="text" class="form-control" id="event-name" />
+              </div>
+              <div class="form-group">
+                <label for="event-description">Movie Description</label>
+                <textarea
+                  class="form-control"
+                  id="event-description"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="event-price">Movie Category</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="event-time">Movie Cover Image</label>
+                <input type="link" class="form-control" />
+              </div>
+              <div class="m-3 text-center">
+                <button
+                  id="submit-button"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Add Movie
+                </button>
+              </div>
+              <div class="container" m-3>
+                <ul class="list-group">
+                  <button
+                    type="button"
+                    class="btn btn-dark"
+                    id="renderedmovies"
+                  >
+                    Rendered Movies:
+                    <span class="badge badge-light renderedmovies"></span>
+                  </button>
+                </ul>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const renderedMovies = document.querySelector(".renderedmovies");
+      const options = {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgwOTE5NDEsImV4cCI6MTY2OTMwMTU0MX0.et2nZ7DRAkHpdooekdUVz7Z5CeAw4TyIwGYk1teIv-A",
+        },
+      };
+
+      async function getallMovies() {
+        const response = await fetch(
+          "https://striveschool-api.herokuapp.com/api/movies/horror",
+          options
+        );
+        const appointments = await response.json();
+        console.log(appointments);
+        let numberofmovies = appointments.length;
+        renderedMovies.innerHTML = `${numberofmovies}`;
+        return appointments;
+      }
+
+      function renderAppointments(listOfAppointments) {
+        let allmovies = document.querySelector(".list-group"); //all g
+
+        listOfAppointments.forEach((appointment, index) => {
+          // We could aslo have desctructured the information as follows
+          // listOfAppointments.forEach(({ name, price, _id }, index) => {
+          const appointmentLi = document.createElement("li");
+          appointmentLi.classList.add("list-group-item");
+          appointmentLi.innerHTML = `<div class="row px-3 align-items-center">
+                                     <div class="mr-1 col row justify-content-between align-items-center">
+                                       <div>${index + 1} - ${
+            appointment.name
+          }</div>
+                                       <div class="badge badge-dark">${
+                                         appointment.name
+                                       }</div><div><span type="button" class="badge bg-warning m-1">Edit</span><span type="button" class="badge bg-danger m-1" onclick="deleteFunction">Delete</span></div
+                                     </div>
+                                   </div>`;
+
+          allmovies.appendChild(appointmentLi);
+        });
+      }
+      function deleteFunction() {}
+      window.onload = async () => {
+        const appointments = await getallMovies();
+        renderAppointments(appointments);
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

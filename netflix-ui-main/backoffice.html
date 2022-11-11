@@ -150,22 +150,19 @@
             <form onsubmit="onFormSubmit(event)" id="event-form">
               <div class="form-group">
                 <label for="event-name">Movie Name</label>
-                <input type="text" class="form-control" id="event-name" />
+                <input type="text" class="form-control" id="name" />
               </div>
               <div class="form-group">
                 <label for="event-description">Movie Description</label>
-                <textarea
-                  class="form-control"
-                  id="event-description"
-                ></textarea>
+                <textarea class="form-control" id="description"></textarea>
               </div>
               <div class="form-group">
                 <label for="event-price">Movie Category</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" id="genre" />
               </div>
               <div class="form-group">
                 <label for="event-time">Movie Cover Image</label>
-                <input type="link" class="form-control" />
+                <input type="link" class="form-control" id="imageUrl" />
               </div>
               <div class="m-3 text-center">
                 <button
@@ -236,7 +233,38 @@
           allmovies.appendChild(appointmentLi);
         });
       }
-      function deleteFunction() {}
+      async function onFormSubmit(event) {
+        event.preventDefault();
+
+        const newMovie = {
+          name: document.querySelector("#name").value,
+          description: document.querySelector("#description").value,
+          category: document.querySelector("#genre").value,
+          imageUrl: document.querySelector("#imageUrl").value,
+        };
+
+        const options = {
+          method: "POST",
+          body: JSON.stringify(newMovie),
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgwOTE5NDEsImV4cCI6MTY2OTMwMTU0MX0.et2nZ7DRAkHpdooekdUVz7Z5CeAw4TyIwGYk1teIv-A",
+            "Content-Type": "application/json",
+          },
+        };
+
+        try {
+          const endpoint = "https://striveschool-api.herokuapp.com/api/movies/";
+          const response = await fetch(endpoint, options);
+          if (response.ok) {
+            alert("Your movie has been added!");
+          } else {
+            throw new Error("Error! Try again in one minute.");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
       window.onload = async () => {
         const appointments = await getallMovies();
         renderAppointments(appointments);

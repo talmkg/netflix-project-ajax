@@ -3,7 +3,7 @@ const divformovies = document.querySelector("movie-row");
 const options = {
   headers: {
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzMDU3NjIsImV4cCI6MTY2OTUxNTM2Mn0.PGAaMIqo-O72cFqWYm_yCmPkkKYro-8g6J1LlQgZIc8",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzNjAxMjUsImV4cCI6MTY2OTU2OTcyNX0.xos_lr7DJ5-NSai5aa06dxi_cdbccM91AA9D4ClttKQ",
   },
 };
 //lets first render only horror movies and then we will see.

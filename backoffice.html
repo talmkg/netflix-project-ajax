@@ -194,6 +194,8 @@
       const params = new URLSearchParams(window.location.search);
       const movieId = params.get("movieId");
       window.onload = async () => {
+        const appointments = await getallMovies();
+        renderAppointments(appointments);
         // We are editing - let's get the event to edit,
         // and prefill the form with its info.
         const response = await fetch(
@@ -213,8 +215,6 @@
         document.getElementById("description").value = movie.description;
         document.getElementById("genre").value = movie.category;
         document.getElementById("imageUrl").value = movie.imageUrl;
-        const appointments = await getallMovies();
-        renderAppointments(appointments);
       };
 
       const renderedMovies = document.querySelector(".renderedmovies");

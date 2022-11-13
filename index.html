@@ -14,6 +14,13 @@
     />
     <link href="css/styles.css" rel="stylesheet" />
     <title>Netflix</title>
+    <style>
+      .thumb-post {
+        object-fit: cover; /* Do not scale the image */
+        object-position: center; /* Center the image within the element */
+        aspect-ratio: 16 / 9;
+      }
+    </style>
   </head>
 
   <body>
@@ -208,7 +215,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="movie-row">
-                <div class="row">
+                <div class="row" id="trending">
                   <div class="col-md-2">
                     <img class="movie-cover" src="./assets/media/media0.jpg" />
                   </div>

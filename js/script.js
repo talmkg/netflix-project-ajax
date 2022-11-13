@@ -1,4 +1,4 @@
-const divformovies = document.querySelector("movie-row");
+let divformovies = document.querySelector("movie-row");
 
 const options = {
   headers: {

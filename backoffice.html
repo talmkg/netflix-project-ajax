@@ -170,7 +170,13 @@
                   type="submit"
                   class="btn btn-primary"
                 >
-                  Add/Edit this Movie
+                  Add this Movie
+                </button>
+                <button id="edit-button" type="button" class="btn btn-warning">
+                  Update this Movie
+                </button>
+                <button id="delete-button" type="button" class="btn btn-danger">
+                  Delete this Movie
                 </button>
               </div>
               <div class="container" m-3>
@@ -191,6 +197,9 @@
       </div>
     </div>
     <script>
+      const editBtn = document.getElementById("edit-button");
+      const deleteBtn = document.getElementById("delete-button");
+      //console.log(editBtn);
       const params = new URLSearchParams(window.location.search);
       const movieId = params.get("movieId");
       window.onload = async () => {
@@ -208,13 +217,59 @@
             },
           }
         );
-        const movie = await response.json();
-        console.log(response, movie);
+        if (movieId) {
+          const movie = await response.json();
+          console.log(response, movie);
 
-        document.getElementById("name").value = movie.name;
-        document.getElementById("description").value = movie.description;
-        document.getElementById("genre").value = movie.category;
-        document.getElementById("imageUrl").value = movie.imageUrl;
+          document.getElementById("name").value = movie.name;
+          document.getElementById("description").value = movie.description;
+          document.getElementById("genre").value = movie.category;
+          document.getElementById("imageUrl").value = movie.imageUrl;
+        }
+        const optionPut = {
+          method: "PUT",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzNjAxMjUsImV4cCI6MTY2OTU2OTcyNX0.xos_lr7DJ5-NSai5aa06dxi_cdbccM91AA9D4ClttKQ",
+            "Content-Type": "application/json",
+          },
+        };
+        const optionDelete = {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzNjAxMjUsImV4cCI6MTY2OTU2OTcyNX0.xos_lr7DJ5-NSai5aa06dxi_cdbccM91AA9D4ClttKQ",
+            "Content-Type": "application/json",
+          },
+        };
+
+        const editMovie = async () => {
+          const response = await fetch(
+            `https://striveschool-api.herokuapp.com/api/movies/${movieId}`,
+            optionPut
+          );
+          if (response.ok) {
+            alert("The movie was edited successfully!");
+          } else {
+            throw new Error("Error! Please try again!");
+          }
+        };
+        const deleteMovie = async () => {
+          const response = await fetch(
+            `https://striveschool-api.herokuapp.com/api/movies/${movieId}`,
+            optionDelete
+          );
+          if (confirm("Do you really want to delete this movie?")) {
+            if (response.ok) {
+              alert("The movie was deleted successfully! RIP...");
+            } else {
+              throw new Error("Error! Please try again!");
+            }
+          }
+        };
+        console.log("check 5");
+        editBtn.addEventListener("click", editMovie);
+        deleteBtn.addEventListener("click", deleteMovie);
       };
 
       const renderedMovies = document.querySelector(".renderedmovies");

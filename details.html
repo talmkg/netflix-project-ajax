@@ -149,9 +149,6 @@
           <button type="button" class="btn btn-warning" onclick="onEdit()">
             Edit Movie
           </button>
-          <button type="button" class="btn btn-danger" onclick="onDelete()">
-            Delete Movie
-          </button>
         </div>
       </div>
     </div>
@@ -182,7 +179,7 @@
         document.querySelector("#event-details").innerHTML = `
           <h1 class="display-4 text-light">${neededElementToDisplay[0].name}</h1>
           <img src="${neededElementToDisplay[0].imageUrl}" style="width: 50%" class="thumb-post"/>
-          <p class="text-light">Description: <br>${neededElementToDisplay[0].description}</p>
+          <p class="text-light">Description: <br> ${neededElementToDisplay[0].description}</p>
           <h3 class="mb-3 text-light">Category: ${neededElementToDisplay[0].category}<h3>
           <h6 class="pl-2 py-3 bg-transparent bg-light text-light">Server Details</h6>
           <ul class="list-group list-group-flush mb-4 text-light">

@@ -195,7 +195,7 @@
       const options = {
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgwOTE5NDEsImV4cCI6MTY2OTMwMTU0MX0.et2nZ7DRAkHpdooekdUVz7Z5CeAw4TyIwGYk1teIv-A",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzMDU3NjIsImV4cCI6MTY2OTUxNTM2Mn0.PGAaMIqo-O72cFqWYm_yCmPkkKYro-8g6J1LlQgZIc8",
         },
       };
 
@@ -248,7 +248,7 @@
           body: JSON.stringify(newMovie),
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgwOTE5NDEsImV4cCI6MTY2OTMwMTU0MX0.et2nZ7DRAkHpdooekdUVz7Z5CeAw4TyIwGYk1teIv-A",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzMDU3NjIsImV4cCI6MTY2OTUxNTM2Mn0.PGAaMIqo-O72cFqWYm_yCmPkkKYro-8g6J1LlQgZIc8",
             "Content-Type": "application/json",
           },
         };
@@ -257,9 +257,9 @@
           const endpoint = "https://striveschool-api.herokuapp.com/api/movies/";
           const response = await fetch(endpoint, options);
           if (response.ok) {
-            alert("Your movie has been added!");
+            alert("New movie has been succesfully added!");
           } else {
-            throw new Error("Error! Try again in one minute.");
+            throw new Error("Oops, something went wrong!");
           }
         } catch (error) {
           console.log(error);

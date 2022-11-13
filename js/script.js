@@ -3,7 +3,7 @@ const divformovies = document.querySelector("movie-row");
 const options = {
   headers: {
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgwOTE5NDEsImV4cCI6MTY2OTMwMTU0MX0.et2nZ7DRAkHpdooekdUVz7Z5CeAw4TyIwGYk1teIv-A",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzZkMTAyNGQ0YmUzZDAwMTU4NDYwZjgiLCJpYXQiOjE2NjgzMDU3NjIsImV4cCI6MTY2OTUxNTM2Mn0.PGAaMIqo-O72cFqWYm_yCmPkkKYro-8g6J1LlQgZIc8",
   },
 };
 //lets first render only horror movies and then we will see.
@@ -29,7 +29,7 @@ function renderAppointments(listOfAppointments) {
   let allmovies = document.querySelector(".movie-row"); //all g
   trendingRow.innerHTML = "";
 
-  listOfAppointments.forEach((movies, index) => {
+  listOfAppointments.forEach((movies) => {
     // We could aslo have desctructured the information as follows
     // listOfAppointments.forEach(({ name, price, _id }, index) => {
     const movieDivElement = document.createElement("div");
